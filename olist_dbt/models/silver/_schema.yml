@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: silver_orders
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+  - name: silver_customers
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+  - name: silver_products
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+  - name: silver_sellers
+    columns:
+      - name: seller_id
+        tests: [unique, not_null]
+  - name: silver_order_reviews
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
