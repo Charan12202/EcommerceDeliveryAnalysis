@@ -3,21 +3,27 @@ models:
   - name: dim_customer
     columns:
       - name: customer_id
+        description: "One row per customer. Customer id and location info (city, state, zip, lat, lon)."
         data_tests: [unique, not_null]
   - name: dim_seller
+    description: "One row per seller. Seller id and location info (city, state, zip, lat, lon)."
     columns:
       - name: seller_id
         data_tests: [unique, not_null]
   - name: dim_product
+    description: "One row per product. Product dimensions, volume, quantity, and category"
     columns:
       - name: product_id
         data_tests: [unique, not_null]
   - name: dim_date
+    description: "Calendar dimension with one row per day from 2016-01-01 to 2018-12-31. Generated in SQL rather than loaded from source. Used to slice facts by year, quarter, month, and weekday."
+
     columns:
       - name: date_key
         data_tests: [unique, not_null]
 
   - name: fact_orders
+    description: "One row per order. Delivery timing, lateness, payment totals, and review score."
     columns:
       - name: order_id
         data_tests: [unique, not_null]
@@ -35,18 +41,41 @@ models:
                 field: date_key
 
   - name: fact_order_items
+    description: "One row per item within an order. Holds item-level price, freight, product, seller, and seller-to-customer distance. Use fact_orders, not this table, for order-level metrics like late rate, since multi-item orders appear here more than once."
     columns:
       - name: order_item_key
+        description: "Unique key for the row, built as order_id + '-' + order_item_id."
         data_tests: [unique, not_null]
+      - name: order_id
+        description: "Order this item belongs to. Joins to fact_orders."
+      - name: order_item_id
+        description: "Item sequence number within the order (1, 2, 3...)."
       - name: product_id
+        description: "Product purchased. Joins to dim_product."
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_product')
                 field: product_id
       - name: seller_id
+        description: "Seller who fulfilled the item. Joins to dim_seller."
         data_tests:
           - relationships:
               arguments:
                 to: ref('dim_seller')
                 field: seller_id
+      - name: customer_id
+        description: "Order-level customer ID. Joins to dim_customer."
+      - name: purchase_date_key
+        description: "Order purchase date as YYYYMMDD. Joins to dim_date."
+      - name: price
+        description: "Item price in Brazilian reais (BRL)."
+        data_tests: [not_null, non_negative]
+      - name: freight_value
+        description: "Shipping cost allocated to this item, in BRL."
+        data_tests: [non_negative]
+      - name: distance_km
+        description: "Straight-line (haversine) distance between seller and customer zip locations, in km. Null when either location has no coordinates."
+        data_tests: [non_negative]
+      - name: is_late
+        description: "Copied from the parent order: true if delivered after the estimated date. For filtering only; calculate late rates from fact_orders."

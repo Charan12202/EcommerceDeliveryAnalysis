@@ -39,4 +39,9 @@ models:
     gold:
       +schema: gold
       +materialized: table
+    
+data_tests:
+  olist_dbt:
+    +store_failures: true
+    +schema: dq_audit
       
