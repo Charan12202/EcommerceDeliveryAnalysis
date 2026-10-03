@@ -1,0 +1,4 @@
+services:
+  scheduler:
+    volumes:
+      - ../olist_dbt:/usr/local/airflow/dbt
