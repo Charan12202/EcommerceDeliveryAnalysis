@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_TOKEN: ci-placeholder   # dbt parse needs a value, not a real token
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install tools
+        run: pip install dbt-databricks sqlfluff
+
+      - name: Lint SQL
+        run: sqlfluff lint models
+
+      - name: Validate dbt project
+        run: dbt parse --profiles-dir airflow/include/dbt_profiles
+
+      - name: Check DAG syntax
+        run: python -m py_compile airflow/dags/*.py
