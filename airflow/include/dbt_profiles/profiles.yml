@@ -1,0 +1,11 @@
+olist_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      host: dbc-916aae68-9364.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/3163c4fe47c426d1
+      catalog: olist
+      schema: silver
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      threads: 4
