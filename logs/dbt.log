@@ -1,0 +1,43 @@
+[0m15:20:30.152915 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108937e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109dcf750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109dcf890>]}
+
+
+============================== 15:20:30.156403 | 62b968a0-3e8c-402b-a861-3d0cafab64a3 ==============================
+[0m15:20:30.156403 [info ] [MainThread]: Running with dbt=1.12.0
+[0m15:20:30.156808 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'hints_enabled': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug', 'maximum_seed_size_mib': '1', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'indirect_selection': 'eager', 'static_parser': 'True', 'write_json': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'version_check': 'True', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/cherrysandha/.dbt', 'partial_parse': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_path': 'logs', 'use_colors': 'True', 'warn_error': 'None', 'quiet': 'False', 'target_path': 'None'}
+[0m15:20:30.169720 [info ] [MainThread]: dbt version: 1.12.0
+[0m15:20:30.170119 [info ] [MainThread]: python version: 3.13.1
+[0m15:20:30.170289 [info ] [MainThread]: python path: /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13
+[0m15:20:30.170446 [info ] [MainThread]: os info: macOS-26.6.2-arm64-arm-64bit-Mach-O
+[0m15:20:30.903892 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m15:20:30.904445 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m15:20:30.904642 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
+[0m15:20:32.355106 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m15:20:32.355569 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m15:20:32.355769 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m15:20:32.405015 [info ] [MainThread]: Using profiles dir at /Users/cherrysandha/.dbt
+[0m15:20:32.405359 [info ] [MainThread]: Using profiles.yml file at /Users/cherrysandha/.dbt/profiles.yml
+[0m15:20:32.405540 [info ] [MainThread]: Using dbt_project.yml file at /Users/cherrysandha/EcommerceDeliveryAnalytics/dbt_project.yml
+[0m15:20:32.405777 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m15:20:32.410217 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 2.3405292, "process_in_blocks": "0", "process_kernel_time": 0.541085, "process_mem_max_rss": "269844480", "process_out_blocks": "0", "process_user_time": 2.385874}
+[0m15:20:32.410738 [debug] [MainThread]: Command `dbt debug` failed at 15:20:32.410662 after 2.34 seconds
+[0m15:20:32.410982 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11549cfc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115499b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115460160>]}
+[0m15:20:32.411231 [debug] [MainThread]: Flushing usage events
+[0m15:20:32.842770 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:14:03.713647 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108ebdd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a88a710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a88a990>]}
+
+
+============================== 12:14:03.718738 | 31adedbc-091b-4f30-82ee-5e0edb1ab90b ==============================
+[0m12:14:03.718738 [info ] [MainThread]: Running with dbt=1.12.3
+[0m12:14:03.719176 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'use_colors': 'True', 'empty': 'None', 'log_cache_events': 'False', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'write_json': 'True', 'partial_parse': 'True', 'introspect': 'True', 'version_check': 'True', 'quiet': 'False', 'printer_width': '80', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'profiles_dir': '/Users/cherrysandha/.dbt', 'static_parser': 'True', 'no_print': 'None', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'hints_enabled': 'True', 'invocation_command': 'dbt docs generate', 'log_path': 'logs'}
+[0m12:14:03.719663 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/cherrysandha/EcommerceDeliveryAnalytics/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:14:03.730134 [debug] [MainThread]: Resource report: {"command_name": "generate", "command_success": false, "command_wall_clock_time": 0.095747665, "process_in_blocks": "0", "process_kernel_time": 0.234571, "process_mem_max_rss": "130662400", "process_out_blocks": "0", "process_user_time": 1.08082}
+[0m12:14:03.730667 [debug] [MainThread]: Command `dbt docs generate` failed at 12:14:03.730595 after 0.10 seconds
+[0m12:14:03.730955 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a6c3820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a8b97f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a905040>]}
+[0m12:14:03.731209 [debug] [MainThread]: Flushing usage events
+[0m12:14:04.487975 [debug] [MainThread]: An error was encountered while trying to flush usage events
